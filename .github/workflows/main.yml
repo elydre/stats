@@ -57,7 +57,8 @@ jobs:
     # Commits all changed files to the repository
     - name: Commit to the repo
       run: |
-        git config --global user.name "pf4-DEV"
+        cd /home/pf4/actions-runner/_work/stats/stats
+        sh /home/pf4/actions-runner/login.sh
         git add /home/pf4/actions-runner/_work/stats/stats --all
         # "echo" returns true so the build succeeds, even if no changed files
         git commit -m 'Update generated files' || echo
