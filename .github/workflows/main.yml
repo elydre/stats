@@ -46,7 +46,7 @@ jobs:
         git clone https://github.com/pf4-DEV/stats.git /home/pf4/actions-runner/_work/stats/stats
         cd /home/pf4/actions-runner/_work/stats/stats
         python3.9 generate_images.py
-        
+
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -58,7 +58,6 @@ jobs:
     - name: Commit to the repo
       run: |
         git config --global user.name "pf4-DEV"
-        git config --global user.email "stats[bot]@pf4-DEV.github.io"
         git add /home/pf4/actions-runner/_work/stats/stats --all
         # "echo" returns true so the build succeeds, even if no changed files
         git commit -m 'Update generated files' || echo
