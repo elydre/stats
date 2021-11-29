@@ -41,8 +41,8 @@ jobs:
     # Generate all statistics images
     - name: Generate images
       run: |
-        rm -Rf /home/pf4/actions-runner/_work/stats/stats/
-        git clone https://github.com/pf4-DEV/stats.git actions-runner/_work/stats/stats
+        rm -Rf /home/pf4/actions-runner/_work/stats/stats
+        git clone https://github.com/pf4-DEV/stats.git /home/pf4/actions-runner/_work/stats/stats
         python3.9 generate_images.py
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
