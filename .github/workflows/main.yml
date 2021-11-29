@@ -48,7 +48,7 @@ jobs:
     # Generate all statistics images
     - name: Generate images
       run: |
-        python3 generate_images.py
+        python3.9 generate_images.py
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
