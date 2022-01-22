@@ -10,8 +10,8 @@ svg {
   width: calc(100% - 10px);
   height: calc(100% - 10px);
   fill: rgb(36, 41, 46);
-  stroke: rgb(255, 255, 255);
-  stroke-width: 1px;
+  stroke: rgb(18, 23, 43);
+  stroke-width: 3px;
   rx: 6px;
   ry: 6px;
 }
@@ -34,6 +34,7 @@ th {
   font-size: 14px;
   font-weight: 600;
   color: rgb(114, 137, 217);
+  font-weight: bold;
 }
 
 td {
