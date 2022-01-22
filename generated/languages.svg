@@ -29,6 +29,7 @@ h2 {
   font-weight: 600;
   color: rgb(114, 137, 217);
   fill: rgb(36, 41, 46);
+  font-weight: bold;
 }
 
 ul {
