@@ -11,7 +11,7 @@ svg {
   height: calc(100% - 10px);
   fill: rgb(36, 41, 46);
   stroke: rgb(255, 255, 255);
-  stroke-width: 1px;
+  stroke-width: 2px;
   rx: 6px;
   ry: 6px;
 }
@@ -104,7 +104,7 @@ tr {
 
 <table>
 <thead><tr style="transform: translateX(0);">
-<th colspan="2">Statistiques GitHub de {{ name }}</th>
+<th colspan="2">Statistiques GitHub</th>
 </tr></thead>
 <tbody>
 
