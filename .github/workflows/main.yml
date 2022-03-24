@@ -4,8 +4,10 @@ name: Generate Stats Images
 
 # Controls when the action will run. Triggers the workflow on push events
 on:
-  branch_protection_rule:
-    types: [created, deleted]
+  push:
+    paths-ignore:
+      - 'generated/languages.svg'
+      - 'generated/overview.svg'
   schedule:
     - cron: "0 * * * *"
   workflow_dispatch:
