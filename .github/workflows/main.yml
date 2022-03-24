@@ -6,8 +6,6 @@ name: Generate Stats Images
 on:
   branch_protection_rule:
     types: [created, deleted]
-  push:
-    branches: [ master ]
   schedule:
     - cron: "0 * * * *"
   workflow_dispatch:
