@@ -51,7 +51,7 @@ class Queries(object):
             result = await r_async.json()
             if result is not None:
                 return result
-        except:
+        except Exception:
             print("aiohttp failed for GraphQL query")
             # Fall back on non-async requests
             async with self.semaphore:
@@ -107,7 +107,7 @@ class Queries(object):
                         params=tuple(params.items()),
                     )
                     if r_requests.status_code == 202:
-                        print('A path returned 202. Retrying...')
+                        print("A path returned 202. Retrying...")
                         await asyncio.sleep(2)
                         continue
                     elif r_requests.status_code == 200:
@@ -304,6 +304,8 @@ Languages:
         self._languages = {}
         self._repos = set()
 
+        exclude_langs_lower = {x.lower() for x in self._exclude_langs}
+
         next_owned = None
         next_contrib = None
         while True:
@@ -348,7 +350,7 @@ Languages:
                 for lang in repo.get("languages", {}).get("edges", []):
                     name = lang.get("node", {}).get("name", "Other")
                     languages = await self.languages
-                    if name in self._exclude_langs:
+                    if name.lower() in exclude_langs_lower:
                         continue
                     if name in languages:
                         languages[name]["size"] += lang.get("size", 0)
@@ -360,18 +362,15 @@ Languages:
                             "color": lang.get("node", {}).get("color"),
                         }
 
-            if owned_repos.get("pageInfo", {}).get(
-                "hasNextPage", False
-            ) or contrib_repos.get("pageInfo", {}).get("hasNextPage", False):
-                next_owned = owned_repos.get("pageInfo", {}).get(
-                    "endCursor", next_owned
-                )
-                next_contrib = contrib_repos.get("pageInfo", {}).get(
-                    "endCursor", next_contrib
-                )
-            else:
+            if not owned_repos.get("pageInfo", {}).get("hasNextPage", False) and not contrib_repos.get("pageInfo", {}).get("hasNextPage", False):
                 break
 
+            next_owned = owned_repos.get("pageInfo", {}).get(
+                "endCursor", next_owned
+            )
+            next_contrib = contrib_repos.get("pageInfo", {}).get(
+                "endCursor", next_contrib
+            )
         # TODO: Improve languages to scale by number of contributions to
         #       specific filetypes
         langs_total = sum(v.get("size", 0) for v in self._languages.values())
