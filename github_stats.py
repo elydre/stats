@@ -90,14 +90,14 @@ class Queries(object):
                     )
                 if r_async.status == 202:
                     # print(f"{path} returned 202. Retrying...")
-                    print(f"A path returned 202. Retrying...")
+                    print("A path returned 202. Retrying...")
                     await asyncio.sleep(2)
                     continue
 
                 result = await r_async.json()
                 if result is not None:
                     return result
-            except:
+            except Exception:
                 print("aiohttp failed for rest query")
                 # Fall back on non-async requests
                 async with self.semaphore:
@@ -301,7 +301,7 @@ Languages:
         """
         self._stargazers = 0
         self._forks = 0
-        self._languages = dict()
+        self._languages = {}
         self._repos = set()
 
         next_owned = None

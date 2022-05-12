@@ -97,7 +97,7 @@ fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8z"></path></svg>
 ################################################################################
 
 
-async def main() -> None:
+async def main() -> None:  # sourcery skip: raise-specific-error
     """
     Generate all badges
     """
