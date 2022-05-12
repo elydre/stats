@@ -45,7 +45,7 @@ jobs:
       run: |
         cd /home/pf4
         rm -Rf /home/pf4/actions-runner/_work/stats/stats
-        git clone https://github.com/pf4-DEV/stats.git /home/pf4/actions-runner/_work/stats/stats
+        git clone https://github.com/elydre/stats.git /home/pf4/actions-runner/_work/stats/stats
         cd /home/pf4/actions-runner/_work/stats/stats
         python3.9 generate_images.py
 
