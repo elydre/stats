@@ -28,7 +28,7 @@ def generate_output_folder() -> None:
 ################################################################################
 
 async def get_number_of_projects() -> None:
-    md = await requests.get("https://raw.githubusercontent.com/elydre/elydre/main/all.md").text
+    md = requests.get("https://raw.githubusercontent.com/elydre/elydre/main/all.md").text
     return len(md.split("!")) - 1
 
 
