@@ -6,9 +6,9 @@ import re
 from time import strftime
 
 import aiohttp
+import requests
 
 from github_stats import Stats
-
 
 ################################################################################
 # Helper Functions
@@ -27,6 +27,10 @@ def generate_output_folder() -> None:
 # Individual Image Generation Functions
 ################################################################################
 
+async def get_number_of_projects(s: Stats) -> None:
+    md = await requests.get("https://raw.githubusercontent.com/elydre/elydre/main/all.md").text
+    return len(md.split("!")) - 1
+
 
 async def generate_overview(s: Stats) -> None:
     """
@@ -41,8 +45,7 @@ async def generate_overview(s: Stats) -> None:
     output = re.sub("{{ stars }}", f"{await s.stargazers:,}", output)
     output = re.sub("{{ forks }}", f"{await s.forks:,}", output)
     output = re.sub("{{ contributions }}", f"{await s.total_contributions:,}", output)
-    changed = (await s.lines_changed)[0] + (await s.lines_changed)[1]
-    output = re.sub("{{ lines_changed }}", f"{changed:,}", output)
+    output = re.sub("{{ number_of_projects }}", f"{await get_number_of_projects():,}", output)
     output = re.sub("{{ views }}", f"{await s.views:,}", output)
     output = re.sub("{{ repos }}", f"{len(await s.repos):,}", output)
 
