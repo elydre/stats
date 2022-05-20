@@ -29,7 +29,7 @@ def generate_output_folder() -> None:
 
 async def get_number_of_projects() -> None:
     md = requests.get("https://raw.githubusercontent.com/elydre/elydre/main/all.md").text
-    return round((len(md.split("darkgreen")) - 1) / (len(md.split("img.shields.io")) - 1) * 100, 1)
+    return round(len(md.split("darkgreen")) / len(md.split("img.shields.io")) * 100, 1)
 
 
 async def generate_overview(s: Stats) -> None:
