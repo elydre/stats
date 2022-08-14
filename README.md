@@ -1,3 +1,5 @@
+[![Generate Stats Images](https://github.com/elydre/stats/actions/workflows/main.yml/badge.svg)](https://github.com/elydre/stats/actions/workflows/main.yml)
+
 # GITHUB STATS
 
 Repository generated from [jstrieb/github-stats](https://github.com/jstrieb/github-stats), thanks!
