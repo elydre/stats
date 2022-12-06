@@ -4,8 +4,8 @@
 
 Repository generated from [jstrieb/github-stats](https://github.com/jstrieb/github-stats), thanks!
 
-## modifications apportées
+## modifications made
 
-- *generate_images.py*: ajout de la date et l'heure, pourcentage de projet terminé
+- *generate_images.py*: add date and time, percentage of project complete
 - *generate_images.py*: build date and percentage of project complete
 - *templates/overview.svg*: icon in color
