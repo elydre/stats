@@ -331,8 +331,6 @@ Languages:
             if not self._ignore_forked_repos:
                 repos += contrib_repos.get("nodes", [])
 
-            print(repos)
-
             for repo in repos:
                 if repo is None:
                     continue
