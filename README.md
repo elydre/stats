@@ -6,6 +6,6 @@ Repository generated from [jstrieb/github-stats](https://github.com/jstrieb/gith
 
 ## modifications made
 
-- *generate_images.py*: add date and time, percentage of project complete
 - *generate_images.py*: build date and percentage of project complete
+- *stats_excluded.py*: use python variables instead of github env
 - *templates/overview.svg*: icon in color

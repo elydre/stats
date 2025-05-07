@@ -9,6 +9,7 @@ import aiohttp
 import requests
 
 from github_stats import Stats
+import stats_excluded
 
 ################################################################################
 # Helper Functions
@@ -111,22 +112,11 @@ async def main() -> None:  # sourcery skip: raise-specific-error
     user = os.getenv("GITHUB_ACTOR")
     if user is None:
         raise RuntimeError("Environment variable GITHUB_ACTOR must be set.")
-    exclude_repos = os.getenv("EXCLUDED")
-    excluded_repos = (
-        {x.strip() for x in exclude_repos.split(",")} if exclude_repos else None
-    )
-    exclude_langs = os.getenv("EXCLUDED_LANGS")
-    excluded_langs = (
-        {x.strip() for x in exclude_langs.split(",")} if exclude_langs else None
-    )
-    print(f"Excluded repos: {excluded_repos}")
-    print(f"Excluded langs: {excluded_langs}")
-    # Convert a truthy value to a Boolean
-    raw_ignore_forked_repos = os.getenv("EXCLUDE_FORKED_REPOS")
-    ignore_forked_repos = (
-        not not raw_ignore_forked_repos
-        and raw_ignore_forked_repos.strip().lower() != "false"
-    )
+
+    excluded_repos = stats_excluded.EXCLUDE_REPOS
+    excluded_langs = stats_excluded.EXCLUDE_LANGS
+    ignore_forked_repos = stats_excluded.IGNORE_FORKED_REPOS
+
     async with aiohttp.ClientSession() as session:
         s = Stats(
             user,
