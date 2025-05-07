@@ -1,5 +1,6 @@
 EXCLUDE_REPOS = [
-    "elydre/libatron"
+    "elydre/libatron",
+    "elydre/dash-profan"
 ]
 
 EXCLUDE_LANGS = [
