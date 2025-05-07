@@ -1,5 +1,5 @@
 EXCLUDE_REPOS = [
-    "elydre/libatron"
+    # "elydre/libatron"
 ]
 
 EXCLUDE_LANGS = [
@@ -9,6 +9,7 @@ EXCLUDE_LANGS = [
     "Roff",
     "Linker Script",
     "Makefile",
+    "KerboScript",
     "Dockerfile",
 ]
 
