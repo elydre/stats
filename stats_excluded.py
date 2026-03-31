@@ -12,7 +12,8 @@ EXCLUDE_LANGS = [
     "Makefile",
     "KerboScript",
     "Dockerfile",
-    "Perl"
+    "Perl",
+    "Lex"
 ]
 
 IGNORE_FORKED_REPOS = True
