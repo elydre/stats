@@ -13,7 +13,8 @@ EXCLUDE_LANGS = [
     "KerboScript",
     "Dockerfile",
     "Perl",
-    "Lex"
+    "Lex",
+    "1C Enterprise"
 ]
 
 IGNORE_FORKED_REPOS = True
