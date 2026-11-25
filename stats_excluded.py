@@ -14,7 +14,8 @@ EXCLUDE_LANGS = [
     "Dockerfile",
     "Perl",
     "Lex",
-    "1C Enterprise"
+    "1C Enterprise",
+    "Common Lisp"
 ]
 
 IGNORE_FORKED_REPOS = True
